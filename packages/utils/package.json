@@ -1,6 +1,6 @@
 {
   "name": "@qmrs/utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Quick Microservice RS - Utils",
   "sideEffects": false,
   "exports": {

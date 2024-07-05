@@ -1,6 +1,6 @@
 {
   "name": "@qmrs/entityid",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Quick Microservice RS - Entity ID's",
   "sideEffects": false,
   "exports": {

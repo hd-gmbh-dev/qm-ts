@@ -1,7 +1,7 @@
 {
   "name": "@qmrs/qm-ts",
   "description": "Quick Microservice RS - related npm packages",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "author": {
     "name": "H & D GmbH Open Source",
