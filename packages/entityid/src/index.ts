@@ -1,4 +1,4 @@
-import { Ok, Err, Result, StringWriter, StringParser } from '@qm/utils'
+import { Ok, Err, Result, StringWriter, StringParser } from '@qmrs/utils'
 
 export enum IdType {
     CustomerId = 'V',

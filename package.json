@@ -1,5 +1,5 @@
 {
-  "name": "qm-ts",
+  "name": "@qmrs/qm-ts",
   "description": "Quick Microservice RS - related npm packages",
   "version": "0.0.1",
   "private": true,

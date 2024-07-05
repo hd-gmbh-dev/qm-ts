@@ -8,7 +8,7 @@ import {
   InstitutionId,
   InstitutionResourceId,
 } from '../src'
-import { None } from '@qm/utils'
+import { None } from '@qmrs/utils'
 
 describe('should parse ids correctly', () => {
   it('parse customer ids', () => {

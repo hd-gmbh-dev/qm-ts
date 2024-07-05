@@ -1,5 +1,5 @@
 {
-  "name": "@qm/utils",
+  "name": "@qmrs/utils",
   "version": "0.0.1",
   "description": "Quick Microservice RS - Utils",
   "sideEffects": false,

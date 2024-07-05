@@ -32,7 +32,7 @@ importers:
 
   packages/entityid:
     dependencies:
-      '@qm/utils':
+      '@qmrs/utils':
         specifier: workspace:*
         version: link:../utils
     devDependencies:

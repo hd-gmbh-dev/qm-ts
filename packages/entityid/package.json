@@ -1,5 +1,5 @@
 {
-  "name": "@qm/entityid",
+  "name": "@qmrs/entityid",
   "version": "0.0.1",
   "description": "Quick Microservice RS - Entity ID's",
   "sideEffects": false,
@@ -31,7 +31,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@qm/utils": "workspace:*"
+    "@qmrs/utils": "workspace:*"
   },
   "author": {
     "name": "H & D GmbH Open Source",
