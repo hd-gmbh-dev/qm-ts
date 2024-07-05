@@ -1,0 +1,51 @@
+{
+  "name": "@qm/entityid",
+  "version": "0.0.1",
+  "description": "Quick Microservice RS - Entity ID's",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "coverage": "vitest --coverage",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@qm/utils": "workspace:*"
+  },
+  "author": {
+    "name": "H & D GmbH Open Source",
+    "email": "contact-oss@h-d-gmbh.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hd-gmbh-dev/qm-ts.git"
+  },
+  "keywords": [
+    "quick-microservice-rs"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^1.6.0"
+  }
+}
