@@ -27,6 +27,8 @@ jobs:
         path: |
           packages/utils/dist
           packages/entityid/dist
+    - name: Install dependencies
+      run: pnpm install
     - name: Publish
       run: pnpm publish --recursive --access public --no-git-checks
       env:
