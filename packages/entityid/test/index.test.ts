@@ -12,6 +12,7 @@ import { None } from '@qmrs/utils'
 
 describe('should parse ids correctly', () => {
   it('parse customer ids', () => {
+    const maxId = CustomerId.parse("VFFFFFFFFFFFFFFFFF").unwrap();
     const id1 = CustomerId.parse("V01").unwrap();
     const id2 = CustomerId.parse("V120").unwrap();
     const id3 = CustomerId.parse("V2500").unwrap();
@@ -20,6 +21,8 @@ describe('should parse ids correctly', () => {
     const id6 = CustomerId.parse("V5AF000F").unwrap();
     const id7 = CustomerId.parse("V6B5F000F").unwrap();
     const id8 = CustomerId.parse("VF7FFFFFFFFFFFFFFF").unwrap();
+
+    expect(maxId).toEqual(new CustomerId(-1n));
     expect(id1).toEqual(new CustomerId(0x1n));
     expect(id2).toEqual(new CustomerId(0x20n));
     expect(id3).toEqual(new CustomerId(0x500n));
@@ -28,6 +31,7 @@ describe('should parse ids correctly', () => {
     expect(id6).toEqual(new CustomerId(0xAF000Fn));
     expect(id7).toEqual(new CustomerId(0xB5F000Fn));
     expect(id8).toEqual(new CustomerId(0x7FFFFFFFFFFFFFFFn));
+    expect(maxId.toString()).toEqual("VFFFFFFFFFFFFFFFFF");
     expect(id1.toString()).toEqual("V01");
     expect(id2.toString()).toEqual("V120");
     expect(id3.toString()).toEqual("V2500");
@@ -78,7 +82,6 @@ describe('should parse ids correctly', () => {
     expect(None()).toEqual(CustomerResourceId.parse("UFCFFFFFFFFFFFFFFF6603f7b32b1753f84a719e01").ok());
     expect(None()).toEqual(CustomerResourceId.parse("UFDFFFFFFFFFFFFFFF6603f7b32b1753f84a719e02").ok());
     expect(None()).toEqual(CustomerResourceId.parse("UFEFFFFFFFFFFFFFFF6603f7b32b1753f84a719e03").ok());
-    expect(None()).toEqual(CustomerResourceId.parse("UFFFFFFFFFFFFFFFFF6603f7b32b1753f84a719e04").ok());
     expect(None()).toEqual(CustomerResourceId.parse("UVV6603f7b32b1753f84a719e04").ok());
     expect(None()).toEqual(CustomerResourceId.parse("U0ABC6603f7b32b1753f84a719e04").ok());
     expect(id1.toArray()).toEqual([1n]);
@@ -88,6 +91,7 @@ describe('should parse ids correctly', () => {
   })
 
   it('parse organization ids', () => {
+    let maxId = OrganizationId.parse("TFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF").unwrap();
     let id1 = OrganizationId.parse("T0101").unwrap();
     let id2 = OrganizationId.parse("T120120").unwrap();
     let id3 = OrganizationId.parse("T25002500").unwrap();
@@ -96,6 +100,7 @@ describe('should parse ids correctly', () => {
     let id6 = OrganizationId.parse("T5AF000F5AF000F").unwrap();
     let id7 = OrganizationId.parse("T6B5F000F6B5F000F").unwrap();
     let id8 = OrganizationId.parse("TF7FFFFFFFFFFFFFFFF7FFFFFFFFFFFFFFF").unwrap();
+    expect(new OrganizationId(-1n, -1n)).toEqual(maxId);
     expect(new OrganizationId(1n, 1n)).toEqual(id1);
     expect(new OrganizationId(0x20n, 0x20n)).toEqual(id2);
     expect(new OrganizationId(0x500n, 0x500n)).toEqual(id3);
@@ -119,7 +124,6 @@ describe('should parse ids correctly', () => {
     expect(None()).toEqual(OrganizationId.parse("TFCFFFFFFFFFFFFFFFCFFFFFFFFFFFFFFF").ok());
     expect(None()).toEqual(OrganizationId.parse("TFDFFFFFFFFFFFFFFFDFFFFFFFFFFFFFFF").ok());
     expect(None()).toEqual(OrganizationId.parse("TFEFFFFFFFFFFFFFFFEFFFFFFFFFFFFFFF").ok());
-    expect(None()).toEqual(OrganizationId.parse("TFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF").ok());
     expect(None()).toEqual(OrganizationId.parse("TVVVU").ok());
     expect(None()).toEqual(OrganizationId.parse("TFABC1C").ok());
     expect(id1.root()).toEqual(new CustomerId(1n));
@@ -163,7 +167,6 @@ describe('should parse ids correctly', () => {
       expect(None()).toEqual(OrganizationResourceId.parse("SFCFFFFFFFFFFFFFFFFCFFFFFFFFFFFFFFF6603f7b32b1753f84a719e01").ok());
       expect(None()).toEqual(OrganizationResourceId.parse("SFDFFFFFFFFFFFFFFFFDFFFFFFFFFFFFFFF6603f7b32b1753f84a719e02").ok());
       expect(None()).toEqual(OrganizationResourceId.parse("SFEFFFFFFFFFFFFFFFFEFFFFFFFFFFFFFFF6603f7b32b1753f84a719e03").ok());
-      expect(None()).toEqual(OrganizationResourceId.parse("SFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6603f7b32b1753f84a719e04").ok());
       expect(None()).toEqual(OrganizationResourceId.parse("SVV6603f7b32b1753f84a719e04").ok());
       expect(None()).toEqual(OrganizationResourceId.parse("S0A0A0A0A0A0ABC6603f7b32b1753f84a719e04").ok());
       expect(id1.root()).toEqual(new CustomerId(1n));
@@ -204,7 +207,6 @@ describe('should parse ids correctly', () => {
     expect(None()).toEqual(InstitutionId.parse("RFCFFFFFFFFFFFFFFFCFFFFFFFFFFFFFFFCFFFFFFFFFFFFFFF").ok());
     expect(None()).toEqual(InstitutionId.parse("RFDFFFFFFFFFFFFFFFDFFFFFFFFFFFFFFFDFFFFFFFFFFFFFFF").ok());
     expect(None()).toEqual(InstitutionId.parse("RFEFFFFFFFFFFFFFFFEFFFFFFFFFFFFFFFEFFFFFFFFFFFFFFF").ok());
-    expect(None()).toEqual(InstitutionId.parse("RFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF").ok());
     expect(None()).toEqual(InstitutionId.parse("R0FF").ok());
     expect(None()).toEqual(InstitutionId.parse("RF0").ok());
     expect(id1.root()).toEqual(new CustomerId(1n));
@@ -248,7 +250,6 @@ describe('should parse ids correctly', () => {
     expect(None()).toEqual(InstitutionResourceId.parse("QFCFFFFFFFFFFFFFFFFCFFFFFFFFFFFFFFFCFFFFFFFFFFFFFFF6603f7b32b1753f84a719e01").ok());
     expect(None()).toEqual(InstitutionResourceId.parse("QFDFFFFFFFFFFFFFFFFDFFFFFFFFFFFFFFFDFFFFFFFFFFFFFFF6603f7b32b1753f84a719e02").ok());
     expect(None()).toEqual(InstitutionResourceId.parse("QFEFFFFFFFFFFFFFFFFEFFFFFFFFFFFFFFFEFFFFFFFFFFFFFFF6603f7b32b1753f84a719e03").ok());
-    expect(None()).toEqual(InstitutionResourceId.parse("QFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6603f7b32b1753f84a719e04").ok());
     expect(None()).toEqual(InstitutionResourceId.parse("QVV6603f7b32b1753f84a719e04").ok());
     expect(None()).toEqual(InstitutionResourceId.parse("Q0A0A0A0A0A0ABC6603f7b32b1753f84a719e04").ok());
     expect(id1.root()).toEqual(new CustomerId(1n));

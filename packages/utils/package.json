@@ -1,6 +1,6 @@
 {
   "name": "@qmrs/utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Quick Microservice RS - Utils",
   "sideEffects": false,
   "exports": {
@@ -43,6 +43,6 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "vitest": "^1.6.0"
+    "vitest": "^3.2.4"
   }
 }

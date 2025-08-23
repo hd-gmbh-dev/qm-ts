@@ -1,7 +1,7 @@
 {
   "name": "@qmrs/qm-ts",
   "description": "Quick Microservice RS - related npm packages",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "author": {
     "name": "H & D GmbH Open Source",
@@ -19,13 +19,13 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@types/node": "^20.14.9",
-    "@vitest/coverage-v8": "^1.6.0",
-    "@vitest/ui": "^1.6.0",
-    "typescript": "^5.5.3",
-    "unbuild": "^2.0.0",
-    "vite": "^5.3.3",
-    "vitest": "^1.6.0"
+    "@types/node": "^22.17.2",
+    "@vitest/coverage-v8": "^3.2.4",
+    "@vitest/ui": "^3.2.4",
+    "typescript": "^5.9.2",
+    "unbuild": "^3.6.1",
+    "vite": "^7.1.3",
+    "vitest": "^3.2.4"
   },
   "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
 }

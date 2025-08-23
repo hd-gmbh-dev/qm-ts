@@ -80,6 +80,9 @@ export function isValidRange(s: string, start: number, end: number): boolean {
 }
 
 export function parseRadix16(s: string): Result<BigInt, string> {
+    if (s === 'FFFFFFFFFFFFFFFF') {
+        return Ok(BigInt(-1n))
+    }
     try {
         let r = BigInt('0x' + s);
         if (r > 0x7FFFFFFFFFFFFFFFn) {
@@ -112,9 +115,13 @@ export class StringWriter {
         let idx: number;
         for (let i = 0; i < this.it.length; i++) {
             idx = r.length;
-            r += `0${this.it[i].toString(16).toUpperCase()}`;
-            let l = r.length;
-            r = insertAt(r, HEX_CHARS[l - (idx + 2)], idx);
+            if (this.it[i] === -1n) {
+                r += `FFFFFFFFFFFFFFFFF`;
+            } else {
+                r += `0${this.it[i].toString(16).toUpperCase()}`;
+                let l = r.length;
+                r = insertAt(r, HEX_CHARS[l - (idx + 2)], idx);
+            }
         }
         return r;
     }
